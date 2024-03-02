@@ -367,7 +367,6 @@ body {
 }
 
 .container--title.tight-column {
-  width: auto;
   max-width: 478.516px;
   grid-column-gap: 8px;
   grid-row-gap: 8px;
@@ -487,9 +486,18 @@ body {
   grid-column-gap: 48px;
   grid-row-gap: 48px;
   flex: 0 auto;
-  justify-content: flex-start;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
   align-items: flex-start;
-  display: flex;
+  display: grid;
+}
+
+.calendar-2col._3-col {
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
 }
 
 .calendar--linepad {
@@ -499,9 +507,10 @@ body {
   grid-row-gap: 24px;
   border: 0 solid #000;
   border-left-width: 1px;
+  flex-direction: column;
   flex: 0 auto;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 24px;
   display: flex;
 }
@@ -927,6 +936,7 @@ body {
 
 .team-text.name {
   opacity: .5;
+  align-items: flex-start;
   font-family: Tobiastrial, sans-serif;
 }
 
@@ -1228,10 +1238,11 @@ body {
 .section-volunteer {
   grid-column-gap: 16px;
   grid-row-gap: 16px;
+  flex-direction: column;
   grid-template-rows: auto auto;
   grid-template-columns: auto auto;
   grid-auto-columns: 1fr;
-  display: none;
+  display: flex;
 }
 
 .volunteer-text {
@@ -1388,7 +1399,7 @@ body {
 }
 
 .image-locaiton {
-  width: 400px;
+  width: 100%;
   height: 400px;
   background-image: url('../images/SCAD-Museum-of-Art-Summer-2015-MN-24-JJ.png');
   background-position: 75%;
@@ -1404,7 +1415,7 @@ body {
 }
 
 .image-locaiton-2 {
-  width: 400px;
+  width: 100%;
   height: 400px;
   background-image: url('../images/Eichberg-Hall-Exterior-Spring-2019-AF_005_SN_SOLARPANELS_v1.png');
   background-position: 75%;
@@ -1481,6 +1492,46 @@ body {
   bottom: 0%;
   left: 0%;
   right: 0%;
+}
+
+.other-body-container {
+  opacity: .5;
+  color: #000;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+.other-body-container._40-padding {
+  opacity: 1;
+  padding-right: 8rem;
+}
+
+.other-body-container._40-padding.percent-fill {
+  width: 78%;
+}
+
+.other-body-container._60-size {
+  width: 40%;
+}
+
+.other-body-container._80-size {
+  text-align: left;
+}
+
+.volunteer-link {
+  text-decoration: none;
+}
+
+.volunteer-div {
+  max-width: 478.5px;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 24px;
+  display: flex;
 }
 
 @media screen and (min-width: 1280px) {
@@ -1668,6 +1719,10 @@ body {
   .new-hero-container {
     padding-top: 62%;
   }
+
+  .other-body-container._80-size {
+    width: 72%;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -1766,6 +1821,10 @@ body {
     height: 240px;
   }
 
+  .calendar-2col._3-col {
+    justify-content: start;
+  }
+
   .calendar--linepad {
     width: 100%;
   }
@@ -1806,7 +1865,7 @@ body {
   }
 
   .section-volunteer {
-    display: none;
+    display: block;
   }
 
   .section-panel---2 {
@@ -1853,6 +1912,10 @@ body {
 
   .logo-video-copy {
     transform: translate(0, -300px);
+  }
+
+  .other-body-container._80-size {
+    width: 72%;
   }
 }
 
@@ -2048,6 +2111,10 @@ body {
     margin-top: 40px;
     transition: opacity .45s;
   }
+
+  .other-body-container._80-size {
+    width: 56%;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -2159,6 +2226,10 @@ body {
     display: grid;
   }
 
+  .calendar-2col._3-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .calendar--linepad {
     width: 320px;
     max-width: 460px;
@@ -2243,6 +2314,10 @@ body {
   .section-panel---2 {
     margin-left: -40px;
   }
+
+  .other-body-container._40-padding {
+    padding-right: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -2265,7 +2340,14 @@ body {
   }
 
   .nav-container {
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    justify-content: stretch;
     margin-top: 24px;
+    display: grid;
   }
 
   .heading-2._60-size {
@@ -2440,6 +2522,22 @@ body {
   .section-padding {
     max-width: none;
   }
+
+  .other-body-container {
+    width: 100%;
+  }
+
+  .other-body-container._40-padding {
+    padding-right: 0;
+  }
+
+  .other-body-container._40-padding.percent-fill {
+    width: 100%;
+  }
+
+  .other-body-container._60-size {
+    width: auto;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -2612,6 +2710,13 @@ body {
     grid-row-gap: 64px;
   }
 
+  .calendar-2col._3-col {
+    width: 100%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: 1fr;
+  }
+
   .calendar--linepad {
     width: 100%;
     max-width: 100%;
@@ -2774,6 +2879,10 @@ body {
     padding-right: 16px;
   }
 
+  .section-volunteer {
+    width: 100%;
+  }
+
   .attendee-grid {
     grid-column-gap: 8px;
     grid-row-gap: 8px;
@@ -2822,10 +2931,36 @@ body {
     max-width: 100%;
     margin-left: -20px;
   }
+
+  .other-body-container._40-padding {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .other-body-container._40-padding.percent-fill {
+    width: 100%;
+  }
+
+  .other-body-container._60-size {
+    width: auto;
+  }
+
+  .other-body-container._80-size {
+    width: 100%;
+  }
+
+  .volunteer-div {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 #w-node-a50432f0-c68f-1dd5-9eb7-9d86aba56249-4a15f014 {
   justify-self: start;
+}
+
+#w-node-_1a07174c-0ed7-2c14-d5cd-9c9d645ba8a8-4a15f014 {
+  grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
 @media screen and (min-width: 1920px) {
